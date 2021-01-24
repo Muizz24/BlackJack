@@ -55,7 +55,8 @@ public class Deck {
 	public Card drawCard() {
 		// nextInt is normally exclusive of the top value,
 		// so add 1 to make it inclusive
-		int randomNum = ThreadLocalRandom.current().nextInt(0, 52 + 1);
+		int randomNum = ThreadLocalRandom.current().nextInt(0, this.showDeckSize()
+				+ 1);
 		Card drawnCard = Deck.remove(randomNum);
 		
 		return drawnCard;

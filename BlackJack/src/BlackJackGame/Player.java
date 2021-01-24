@@ -7,9 +7,15 @@ public class Player {
 	private List<Card> hand;
 	private int handValue = 0;
 	private int handSize = 0;
+	private boolean isPlaying = false;
+	private boolean isDealer = false;
+	private String playerName = "";
 	
-	public Player() {
+	public Player(boolean isPlaying, boolean isDealer, String playerName) {
 		this.hand = new ArrayList<>();
+		this.isPlaying = isPlaying;
+		this.isDealer = isDealer;
+		this.playerName = playerName;
 	}
 	
 	public void addCard(Card card) {
@@ -43,6 +49,26 @@ public class Player {
 
 	public int getHandSize() {
 		return this.handSize;
+	}
+	
+	public boolean getIsPlayer() {
+		return isPlaying;
+	}
+	
+	public boolean getIsDealer() {
+		return isDealer;
+	}
+	
+	public String getPlayerName() {
+		return this.playerName;
+	}
+	
+	public String toString() {
+		String result = this.playerName + "'s hand:\n";
+		for (Card card : hand) {
+			result = result + card.toString() + "\n";
+		}
+		return result;
 	}
 	
 }
